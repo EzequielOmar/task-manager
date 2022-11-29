@@ -1,0 +1,20 @@
+{
+  "development": {
+    "database": "taskmanager_dev",
+    "username": "default",
+    "password": "secret",
+    "host": "172.19.0.1",
+    "dialect": "postgres",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SeedersMeta"
+  },
+  "test": {
+    "database": "taskmanager",
+    "username": "default",
+    "password": "secrets",
+    "host": "172.19.0.1",
+    "dialect": "postgres",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SeedersMeta"
+  }
+}
