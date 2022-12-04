@@ -4,7 +4,12 @@
   "description": "Backend for a task manager app made with nodeJs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "npm run db:up && nodemon index.js",
+    "db:up": "npm run db:migrate && npm run db:seed",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:down": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:migrate:undo:all",
+    "db:restart": "npm run db:down && npm run db:up",
     "test": "jest"
   },
   "repository": {
@@ -32,7 +37,9 @@
     "sequelize-cli": "^6.5.2"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
     "pg": "^8.8.0",
