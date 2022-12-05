@@ -8,6 +8,10 @@ const app = express();
 
 sequelize.connectDB();
 
+//* ROUTERS
+const projectRouter = require("./routes/project.routes");
+
+
 //* MIDDLEWARES
 //* Parse application/json
 app.use(bodyParser.json());
@@ -26,5 +30,12 @@ app.use((err, req, res, next) => {
   res.send("some error");
 });
 
+app.use('/project', projectRouter);
+
+app.get('/*', (req, res) => {
+  res.send('Testing')
+})
+
 //* Assign the port number and run server
 app.listen(PORT, () => console.log(`Server Running on port: ${PORT}`));
+

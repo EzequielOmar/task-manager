@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
-      tittle: { type: DataTypes.STRING(50), unique: true, len: [2, 50] },
+      title: { type: DataTypes.STRING(50), unique: true, len: [2, 50] },
       details: { type: DataTypes.STRING(100), len: [2, 100] },
     },
     {

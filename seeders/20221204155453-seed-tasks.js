@@ -8,17 +8,17 @@ module.exports = {
       [
         {
           ProjectId: 1,
-          tittle: "goal with the ear",
+          title: "goal with the ear",
           details: "score a goal with my ear",
         },
         {
           ProjectId: 1,
-          tittle: "free kick goal",
+          title: "free kick goal",
           status: true,
         },
         {
           ProjectId: 2,
-          tittle: "Olympic goal",
+          title: "Olympic goal",
           details: "score a goal from the corner kick",
         },
       ],
