@@ -9,7 +9,7 @@ const app = express();
 sequelize.connectDB();
 
 //* ROUTERS
-const projectRouter = require("./routes/project.routes");
+const projectRouter = require("./src/routes/project.routes");
 
 
 //* MIDDLEWARES
