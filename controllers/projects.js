@@ -30,7 +30,7 @@ exports.createOne = async (req, res, next) => {
     const PROJECT_MODEL = {
       UserId: req.body.UserId,
       title: req.body.title,
-      details: req.body.details
+      description: req.body.description
     }
     try {
       const project = await Project.create(PROJECT_MODEL);
@@ -48,7 +48,7 @@ exports.updateOne = async (req, res, next) => {
     const PROJECT_MODEL = {
       UserId: req.body.UserId,
       title: req.body.title,
-      details: req.body.details
+      description: req.body.description
     }
     try {
       const project = await Project.update(PROJECT_MODEL, {where: {id: req.params.id}});

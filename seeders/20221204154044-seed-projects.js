@@ -9,7 +9,7 @@ module.exports = {
         {
           UserId: 2,
           title: "All goals to do from Lio",
-          details: "Folder with all my goals to do",
+          description: "Folder with all my goals to do",
           createdAt: "2022-04-11",
           updatedAt: "2022-04-11",
         },
@@ -22,7 +22,7 @@ module.exports = {
         {
           UserId: 3,
           title: "All runs to do from Killian",
-          details: "Folder with all my runs to do",
+          description: "Folder with all my runs to do",
           createdAt: "2022-04-11",
           updatedAt: "2022-04-11",
         },
