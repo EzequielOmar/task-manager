@@ -1,11 +1,10 @@
 const db = require('../../models/index.js');
 
-const Project = db.Projects;
 const Task = db.Tasks;
 
 exports.getAll = async (req, res, next) => {
   try {
-    const ALL = await Project.findAll();
+    const ALL = await Task.findAll();
     return res.status(200).json(ALL);
   } catch (err) {
     console.log(err);
@@ -15,11 +14,9 @@ exports.getAll = async (req, res, next) => {
 
 exports.getOne = async (req, res, next) => {
   try {
-    const ROW = await Project.findByPk(req.params.id, {
-      include: Task
-    });
+    const ROW = await Task.findByPk(req.params.id);
     if (!ROW) {
-      return res.status(500).send("The project was not found");
+      return res.status(500).send("The task was not found");
     }
     return res.status(200).json(ROW);
   } catch (err) {
@@ -30,14 +27,15 @@ exports.getOne = async (req, res, next) => {
 
 exports.createOne = async (req, res, next) => {
   try {
-    const PROJECT_MODEL = {
-      UserId: req.body.UserId,
+    const TASK_MODEL = {
+      ProjectId: req.body.ProjectId,
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      done: req.body.done
     }
     try {
-      const project = await Project.create(PROJECT_MODEL);
-      return res.status(201).json(project);
+      const task = await Task.create(TASK_MODEL);
+      return res.status(201).json(task);
     } catch (err) {
       return res.status(500).json(err);
     }
@@ -48,15 +46,16 @@ exports.createOne = async (req, res, next) => {
 
 exports.updateOne = async (req, res, next) => {
   try {
-    const PROJECT_MODEL = {
-      UserId: req.body.UserId,
+    const TASK_MODEL = {
+      ProjectId: req.body.ProjectId,
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      done: req.body.done
     }
     try {
-      const project = await Project.update(PROJECT_MODEL, {where: {id: req.params.id}});
-      if (!project) {
-        return res.status(500).send("The project was not found");
+      const task = await Task.update(TASK_MODEL, {where: {id: req.params.id}});
+      if (!task) {
+        return res.status(500).send("The task was not found");
       }
       return res.status(200).json(project);
     } catch (err) {
@@ -69,11 +68,11 @@ exports.updateOne = async (req, res, next) => {
 
 exports.deleteOne = async (req, res, next) => {
   try {
-    const project = await Project.destroy({where: {id: req.params.id}});
-    if (!project) {
-      return res.send("The project was not found");
+    const task = await Task.destroy({where: {id: req.params.id}});
+    if (!task) {
+      return res.send("The task was not found");
     }
-    return res.status(200).json(project);
+    return res.status(200).json(task);
   } catch (err) {
     return res.status(500).json(err); 
   }

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       models.Projects.belongsTo(models.Users, {});
       models.Projects.hasMany(models.Tasks, {
         foreignKey: "ProjectId",
+        onUpdate: 'cascade'
       });
     }
   }

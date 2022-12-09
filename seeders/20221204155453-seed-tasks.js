@@ -9,7 +9,7 @@ module.exports = {
         {
           ProjectId: 1,
           title: "goal with the ear",
-          description: "score a goal with my ear",
+          details: "score a goal with my ear",
         },
         {
           ProjectId: 1,
@@ -19,7 +19,7 @@ module.exports = {
         {
           ProjectId: 2,
           title: "Olympic goal",
-          description: "score a goal from the corner kick",
+          details: "score a goal from the corner kick",
         },
       ],
       {}

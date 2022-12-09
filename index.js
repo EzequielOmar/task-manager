@@ -10,6 +10,7 @@ sequelize.connectDB();
 
 //* ROUTERS
 const projectRouter = require("./src/routes/project.routes");
+const taskRouter = require("./src/routes/task.routes");
 
 
 //* MIDDLEWARES
@@ -31,6 +32,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/project', projectRouter);
+app.use('/task', taskRouter);
 
 app.get('/*', (req, res) => {
   res.send('Testing')
